@@ -42,7 +42,7 @@
             border-bottom-left-radius: 6px;
             border-bottom-right-radius: 6px;
             margin: 0 auto;
-            top: 150px;
+            top: 40px;
             background-color: var(--color-flap);
             box-shadow: 0 4px 20px rgba(0,0,0,.1);
             cursor: pointer;
@@ -247,8 +247,10 @@
         }
 
         .reset {
-            text-align: center;
-            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Adjust the gap between buttons */
+            margin-top: 10px; /* Adjusted margin-top */
             animation: fadeIn 2s ease-in-out;
         }
 
@@ -260,11 +262,12 @@
             border-radius: 20px;
             color: white;
             padding: 12px 25px;
-            margin: 10px;
             font-size: 16px;
             cursor: pointer;
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
             font-family: Arial, sans-serif;
+            flex: 1; /* Make buttons flexible */
+            max-width: 150px; /* Optional: Set a max-width for buttons */
         }
 
         .reset button:hover {
