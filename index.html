@@ -126,7 +126,9 @@
         .envlope-wrapper {
             height: 380px;
             margin-top: 50px;
-            animation: float 3s ease-in-out infinite, fadeIn 2s ease-in-out;
+            animation: float 3s ease-in-out infinite, fadeIn 10s ease-in-out;
+            border-bottom: 2px solid #d46a84; /* Add border line */
+            padding-bottom: 20px; /* Add space below the border */
         }
 
         .open .flap {
@@ -245,36 +247,6 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
-
-        .reset {
-            display: flex;
-            justify-content: center;
-            gap: 10px; /* Adjust the gap between buttons */
-            margin-top: 10px; /* Adjusted margin-top */
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .reset button {
-            font-weight: 600;
-            transition: all 0.3s ease;
-            background-color: var(--color-env);
-            border: 2px solid var(--color-env2);
-            border-radius: 20px;
-            color: white;
-            padding: 12px 25px;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            font-family: Arial, sans-serif;
-            flex: 1; /* Make buttons flexible */
-            max-width: 150px; /* Optional: Set a max-width for buttons */
-        }
-
-        .reset button:hover {
-            background-color: var(--color-env2);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 7px 25px rgba(0,0,0,0.2);
-        }
     </style>
     <script>
         function checkOrientation() {
@@ -318,29 +290,18 @@
         </div>
     </div>
 
-    <div class="reset">
-        <button id="open">Open</button>
-        <button id="reset">Close</button>
-    </div>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             const envelope = $('#envelope');
-            const btnOpen = $("#open");
-            const btnReset = $("#reset");
 
-            envelope.on('click', open);
-            btnOpen.on('click', open);
-            btnReset.on('click', close);
-
-            function open() {
-                envelope.removeClass("close").addClass("open");
-            }
-
-            function close() {
-                envelope.removeClass("open").addClass("close");
-            }
+            envelope.on('click', function() {
+                if (envelope.hasClass("close")) {
+                    envelope.removeClass("close").addClass("open");
+                } else {
+                    envelope.removeClass("open").addClass("close");
+                }
+            });
         });
     </script>
 </body>
