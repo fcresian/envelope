@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pink Envelope</title>
+    <title>Henlo</title>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,6 +12,16 @@
             --color-heart: #6a85a0;
             --color-sparkle: #d0e1f2;
             --wax-red: #2e4255;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: opacity 1s ease-in-out;
         }
 
         #envelope {
@@ -217,15 +227,6 @@
             50% { transform: scale(1.5); }
         }
 
-        body {
-            background-color: var(--color-bg);
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
         .reset {
             text-align: center;
             margin-top: 50px;
@@ -271,12 +272,20 @@
         .images.show img {
             opacity: 1;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
     </style>
+    <script>
+        function checkOrientation() {
+            if (window.innerHeight >= window.innerWidth) {
+                document.body.style.opacity = 0;
+                setTimeout(function() {
+                    window.location.href = 'landscape.html'; // Redirect back to landscape.html if in portrait mode
+                }, 1000);
+            }
+        }
+
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('load', checkOrientation);
+    </script>
 </head>
 <body>
     <div class="envlope-wrapper">
