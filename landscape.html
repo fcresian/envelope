@@ -21,7 +21,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Handlee', cursive;
             background-color: var(--color-bg);
             color: #fff;
             text-align: center;
@@ -40,35 +40,17 @@
             color: #333;
             margin: 0;
         }
-        .icon {
-            margin-top: 20px;
-            animation: rotateAndFade 5s infinite;
-        }
-        @keyframes rotateAndFade {
-            0% {
-                transform: rotate(0deg);
-                opacity: 1;
-            }
-            50% {
-                transform: rotate(-90deg);
-                opacity: 1;
-            }
-            75% {
-                transform: rotate(-90deg);
-                opacity: 0;
-            }
-            100% {
-                transform: rotate(-90deg);
-                opacity: 0;
-            }
-        }
     </style>
     <script>
         function checkOrientation() {
             if (window.innerHeight < window.innerWidth) {
-                window.location.href = 'index.html'; // Replace 'index.html' with the actual file you want to redirect to
+                if (!window.location.pathname.endsWith('index.html')) {
+                    window.location.href = 'index.html'; // Replace 'index.html' with the actual file you want to redirect to
+                }
             } else {
-                window.location.href = 'landscape.html'; // Redirect back to landscape.html if in portrait mode
+                if (!window.location.pathname.endsWith('landscape.html')) {
+                    window.location.href = 'landscape.html'; // Redirect back to landscape.html if in portrait mode
+                }
             }
         }
 
@@ -79,11 +61,6 @@
 <body>
     <div class="message">
         <p>Please switch to landscape mode to proceed. hehe</p>
-        <div class="icon">
-            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 1H8C6.9 1 6 1.9 6 3V21C6 22.1 6.9 23 8 23H16C17.1 23 18 22.1 18 21V3C18 1.9 17.1 1 16 1ZM16 21H8V3H16V21ZM12 19C11.45 19 11 18.55 11 18C11 17.45 11.45 17 12 17C12.55 17 13 17.45 13 18C13 18.55 12.55 19 12 19ZM15 15H9V5H15V15Z" fill="#333"/>
-            </svg>
-        </div>
     </div>
 </body>
 </html>
