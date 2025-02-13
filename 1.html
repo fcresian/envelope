@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landscape Mode Required</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-env: #5a7895;
+            --color-env2: #496a87;
+            --color-flap: #405c78;
+            --color-bg: #3b4f68;
+            --color-heart: #6a85a0;
+            --color-sparkle: #d0e1f2;
+            --wax-red: #2e4255;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Handlee', cursive;
+            background-color: var(--color-bg);
+            color: #fff;
+            text-align: center;
+        }
+        .message {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+        .message p {
+            font-size: 1.5em; /* Increased font size */
+            color: #333;
+            margin: 0;
+        }
+    </style>
+    <script>
+        function checkOrientation() {
+            if (window.innerHeight < window.innerWidth) {
+                if (!window.location.pathname.endsWith('2.html')) {
+                    window.location.href = '2.html'; // Replace 'index.html' with the actual file you want to redirect to
+                }
+            } else {
+                if (!window.location.pathname.endsWith('1.html')) {
+                    window.location.href = '1.html'; // Redirect back to landscape.html if in portrait mode
+                }
+            }
+        }
+
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('load', checkOrientation);
+    </script>
+</head>
+<body>
+    <div class="message">
+        <p>Please switch to landscape mode to proceed. hehe</p>
+    </div>
+</body>
+</html>
